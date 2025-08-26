@@ -1,13 +1,14 @@
-"use client"; 
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 const Footer = () => {
-  const [currentYear, setCurrentYear] = useState("");
+  const [mounted, setMounted] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   useEffect(() => {
-    setCurrentYear(new Date().getFullYear().toString());
+    setMounted(true);
   }, []);
 
   return (
@@ -21,7 +22,8 @@ const Footer = () => {
             height={150}
           />
           <p className="mt-4 text-sm">
-            © {currentYear} PersonalizAgro. Todos os direitos reservados.
+            © {mounted ? currentYear : "2025"} PersonalizAgro. Todos os direitos
+            reservados.
           </p>
         </div>
         <div className="text-sm">
@@ -29,11 +31,6 @@ const Footer = () => {
           <p>(43) 99181-9073</p>
           <p>belchior.julia12@gmail.com</p>
         </div>
-        {/* Opcional: Links para redes sociais */}
-        {/* <div className="mt-4 md:mt-0">
-          <a href="#" className="text-gray-300 hover:text-white mx-2">LinkedIn</a>
-          <a href="#" className="text-gray-300 hover:text-white mx-2">Instagram</a>
-        </div> */}
       </div>
     </footer>
   );

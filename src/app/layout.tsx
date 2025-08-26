@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-// Opcional: Importar fonte externa (ex: Google Fonts)
-// import { Inter } from 'next/font/google';
-// const inter = Inter({ subsets: ['latin'] });
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body suppressHydrationWarning={true}>{children}</body>
     </html>
   );
 }
